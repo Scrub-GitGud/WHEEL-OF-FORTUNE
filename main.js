@@ -1,12 +1,12 @@
 const sectors = [
-    {color:"#f82", label:"Stack"},
-    {color:"#0bf", label:"10"},
-    {color:"#fb0", label:"200"},
-    {color:"#0fb", label:"50"},
-    {color:"#b0f", label:"100"},
-    {color:"#f0b", label:"5"},
-    {color:"#bf0", label:"500"},
-    {color:"#333", label:"999"},
+    {color:"#f82", label:"50"},
+    {color:"#0bf", label:"0"},
+    {color:"#fb0", label:"5"},
+    {color:"#0fb", label:"15"},
+    {color:"#b0f", label:"30"},
+    {color:"#f0b", label:"100"},
+    {color:"#bf0", label:"20"},
+    {color:"#333", label:"30"},
 ];
 
 // Generate random float in range min-max:
@@ -47,8 +47,8 @@ const drawSector = (sector, i) => {
     ctx.rotate(ang + arc / 2);
     ctx.textAlign = "right";
     ctx.fillStyle = "#fff";
-    ctx.font = "bold 30px sans-serif";
-    ctx.fillText(sector.label, rad - 10, 10);
+    ctx.font = "bold 35px sans-serif";
+    ctx.fillText(sector.label, rad - 50, 10);
     //
     ctx.restore();
 };

@@ -13,7 +13,7 @@
 }
 
 #spin {
-    font: 1.5rem/0 sans-serif;
+    font: 2rem/0 sans-serif;
     user-select: none;
     cursor: pointer;
     display: flex;
@@ -40,3 +40,5 @@
     border-bottom-color: currentColor;
     border-top: none;
 }
+
+
