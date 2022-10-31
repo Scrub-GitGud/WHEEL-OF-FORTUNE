@@ -1,12 +1,12 @@
 const sectors = [
-    {color:"#f82", label:"50"},
-    {color:"#0bf", label:"0"},
-    {color:"#fb0", label:"5"},
-    {color:"#0fb", label:"15"},
-    {color:"#b0f", label:"30"},
-    {color:"#f0b", label:"100"},
-    {color:"#bf0", label:"20"},
-    {color:"#333", label:"30"},
+    {color:"#f82", label:"50", msg: "50%"},
+    {color:"#0bf", label:"0", msg: "nothing"},
+    {color:"#fb0", label:"5", msg: "5%"},
+    {color:"#0fb", label:"15", msg: "15%"},
+    {color:"#b0f", label:"30", msg: "30%"},
+    {color:"#f0b", label:"100", msg: "100%"},
+    {color:"#bf0", label:"20", msg: "20%"},
+    {color:"#bbb", label:"30", msg: "30%"},
 ];
 
 // Generate random float in range min-max:
@@ -47,7 +47,7 @@ const drawSector = (sector, i) => {
     ctx.rotate(ang + arc / 2);
     ctx.textAlign = "right";
     ctx.fillStyle = "#fff";
-    ctx.font = "bold 35px sans-serif";
+    ctx.font = "bold 35px Nunito";
     ctx.fillText(sector.label, rad - 50, 10);
     //
     ctx.restore();
@@ -69,25 +69,26 @@ const frame = () => {
 
     // Accelerate
     if (isAccelerating) {
-    angVel ||= angVelMin; // Initial velocity kick
-    angVel *= 1.06; // Accelerate
+        angVel ||= angVelMin; // Initial velocity kick
+        angVel *= 1.06; // Accelerate
     }
     
     // Decelerate
     else {
-    isAccelerating = false;
-    angVel *= friction; // Decelerate by friction  
+        isAccelerating = false;
+        angVel *= friction; // Decelerate by friction  
 
-    // SPIN END:
-    if (angVel < angVelMin) {
-        isSpinning = false;
-        angVel = 0; 
-    }
+        // SPIN END:
+        if (angVel < angVelMin) {
+            isSpinning = false;
+            angVel = 0; 
+        }
     }
 
     ang += angVel; // Update angle
     ang %= TAU;    // Normalize angle
     rotate();      // CSS rotate!
+    checkResult(); // Checks result after rotation stops.
 };
 
 const engine = () => {
@@ -106,3 +107,20 @@ elSpin.addEventListener("click", () => {
 sectors.forEach(drawSector);
 rotate(); // Initial rotation
 engine(); // Start engine!
+
+
+let result_el = document.querySelector('#result');
+let result_modal = document.querySelector('.result-modal');
+const checkResult = () => {
+    if(angVel == 0) {
+        const sector = sectors[getIndex()];
+        console.log(sector.label);
+        result_el.innerHTML = sector.msg
+        result_modal.classList.remove('hidden')
+    } else {
+        result_modal.classList.add('hidden')
+    }
+}
+const hideModal = () => {
+    result_modal.classList.add('hidden')
+}

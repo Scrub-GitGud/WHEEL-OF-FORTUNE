@@ -1,8 +1,17 @@
-<link rel="stylesheet" href="./style.css">
+<head>
+    <link rel="stylesheet" href="./style.css">
+</head>
 
 <div id="wheelOfFortune">
     <canvas id="wheel" width="500" height="500"></canvas>
     <div id="spin">SPIN asd asd asd as dasd as dasd asd asd as d</div>
+</div>
+
+<div class="result-modal ">
+    <div class="result-modal-content">
+        <div class="result-text">You've Won <span id="result">Nothing</span></div>
+        <button onclick="hideModal()" class="close-btn">Close</button>
+    </div>
 </div>
 
 <script src="./main.js"></script>

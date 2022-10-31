@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+/* ========================================================================================= */
+/*                                        Spinner CSS                                        */
+/* ========================================================================================= */
 #wheelOfFortune {
     display: inline-flex;
     overflow: hidden;
@@ -14,6 +19,7 @@
 
 #spin {
     font: 2rem/0 sans-serif;
+    font-family: 'Nunito', sans-serif;
     user-select: none;
     cursor: pointer;
     display: flex;
@@ -40,5 +46,77 @@
     border-bottom-color: currentColor;
     border-top: none;
 }
+/* ========================================================================================= */
+/*                                      Spinner CSS: End                                      */
+/* ========================================================================================= */
+
+body {
+    background-color: #333;
+    font-family: 'Nunito', sans-serif;
+}
 
 
+.result-modal {
+    background-color: #333;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1, 1) rotate(1440deg);
+
+    width: 600px;
+    height: 300px;
+
+    border-radius: 30px;
+    border: 4px solid white;
+
+    scale: 1;
+    transition: all 1s ease-in;
+}
+.result-modal.hidden {
+    /* scale: 0; */
+    transform: translate(-50%, -50%) scale(0, 0) rotate(0deg);
+}
+@media only screen and (max-width: 768px) {
+    .result-modal {
+        width: 90%;
+        height: 300px;
+    }
+}
+
+.result-modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+}
+
+.result-text {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 70px;
+
+    width: 100%;
+    text-align: center;
+
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+
+    color: white;
+}
+
+.close-btn {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    
+    font-family: 'Nunito', sans-serif;
+    margin: 5px auto;
+}
