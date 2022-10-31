@@ -54,7 +54,9 @@ body {
     background-color: #333;
     font-family: 'Nunito', sans-serif;
 }
-
+canvas {
+    font-family: 'Nunito', sans-serif;
+}
 
 .result-modal {
     background-color: #333;

@@ -47,7 +47,7 @@ const drawSector = (sector, i) => {
     ctx.rotate(ang + arc / 2);
     ctx.textAlign = "right";
     ctx.fillStyle = "#fff";
-    ctx.font = "bold 35px Nunito";
+    ctx.font = "bold 35px 'Nunito', sans-serif";
     ctx.fillText(sector.label, rad - 50, 10);
     //
     ctx.restore();
